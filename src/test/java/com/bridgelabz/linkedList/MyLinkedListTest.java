@@ -76,4 +76,18 @@ public class MyLinkedListTest {
         				 && mylinkedList.head.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
 	}
+	@Test
+	public void given3NumbersShouldDeleteTailOfLinkedList() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
+		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
+		mylinkedList.addElement(myFirstNode);
+		mylinkedList.addElement(mySecondNode);
+		mylinkedList.addElement(myThirdNode);
+		mylinkedList.popLast();
+		mylinkedList.printMyNodes();
+        boolean result = mylinkedList.head.equals(myFirstNode) 
+        				 && mylinkedList.head.getNext().equals(mySecondNode);
+        Assert.assertTrue(result);
+	}
 }

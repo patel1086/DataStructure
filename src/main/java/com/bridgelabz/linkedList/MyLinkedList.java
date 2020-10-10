@@ -40,7 +40,7 @@ public class MyLinkedList<K>{
 	//Method to insert after a specified element
 	public void insert(INode destNode, INode newNode) {
 	       INode tempNode = this.head;
-	        while (!tempNode.getKey().equals(destNode.getKey())) {
+	       while (!tempNode.getKey().equals(destNode.getKey())) {
 	            tempNode = tempNode.getNext();
 	        }
 	        newNode.setNext(tempNode.getNext());
@@ -48,9 +48,25 @@ public class MyLinkedList<K>{
 	}
 	//Method to Delete first Element
 	public INode pop() {
-        INode tempNode = this.head;
-        this.head = head.getNext();
-        return tempNode;
+           INode tempNode = this.head;
+           this.head = head.getNext();
+           return tempNode;
+    }
+	//Method to delete last element
+	public INode popLast() throws NullPointerException {
+       if (this.head == null)
+            return null;
+       if (this.head.getNext().equals(null))
+            return null;
+       else {
+           INode tempNode = head;
+           while (!tempNode.getNext().equals(tail)) {
+               tempNode = tempNode.getNext();
+           }
+           INode tempLastNode = tempNode.getNext();
+           tempLastNode.setNext(null);
+           return tempLastNode;
+       }
     }
 	public void printMyNodes() {
 		StringBuffer myNodes=new StringBuffer("My Nodes: ");
