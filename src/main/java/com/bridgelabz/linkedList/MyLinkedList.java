@@ -45,7 +45,13 @@ public class MyLinkedList<K>{
 	        }
 	        newNode.setNext(tempNode.getNext());
 	        tempNode.setNext(newNode);
-	    }
+	}
+	//Method to Delete first Element
+	public INode pop() {
+        INode tempNode = this.head;
+        this.head = head.getNext();
+        return tempNode;
+    }
 	public void printMyNodes() {
 		StringBuffer myNodes=new StringBuffer("My Nodes: ");
 		INode tempNode=head;
