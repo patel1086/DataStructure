@@ -9,7 +9,7 @@ import org.junit.Test;
 public class MyLinkedListTest {
 	MyLinkedList mylinkedList=new MyLinkedList();
 	 @Test
-	 public void given3NumbersShouldPass() {
+	 public void given3NumbersShouldPassLinkedListTest() {
 	    KeyNode<Integer> myFirstNode=new KeyNode<>(56);
 		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
 		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
