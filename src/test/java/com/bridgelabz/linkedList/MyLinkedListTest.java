@@ -103,4 +103,22 @@ public class MyLinkedListTest {
         boolean result =element.getKey().equals(myThirdNode.getKey());
         Assert.assertTrue(result);
 	}
+	@Test
+	public void given3NumbersShouldSerachElementAndThenAddOneElementAfterThatInLinkedList() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
+		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
+		KeyNode<Integer> myNewNode=new KeyNode<>(40);
+		mylinkedList.addElement(myFirstNode);
+		mylinkedList.addElement(mySecondNode);
+		mylinkedList.addElement(myThirdNode);
+		INode element=mylinkedList.search(mySecondNode);
+		mylinkedList.insert(element, myNewNode);
+		mylinkedList.printMyNodes();
+        boolean result =mylinkedList.head.equals(myFirstNode) 
+        				&& mylinkedList.head.getNext().equals(mySecondNode) 
+        				&&mylinkedList.head.getNext().getNext().equals(myNewNode)
+        				&& mylinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+	}
 }
