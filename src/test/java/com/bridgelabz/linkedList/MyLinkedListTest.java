@@ -34,4 +34,33 @@ public class MyLinkedListTest {
 		Assert.assertTrue(result);
 		mylinkedList.printMyNodes();
 	}
+	@Test
+	public void given3NumbersShouldPassHeadFromEnd() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
+		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
+		mylinkedList.addElement(myFirstNode);
+		mylinkedList.addElement(mySecondNode);
+		mylinkedList.addElement(myThirdNode);
+		mylinkedList.printMyNodes();
+        boolean result = mylinkedList.head.equals(myFirstNode) 
+        				 && mylinkedList.head.getNext().equals(mySecondNode)
+                         && mylinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+	}
+	@Test
+	public void insertOneNumbertBetweenTwoLinkedListNode() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> newNode=new KeyNode<>(30);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(70);
+		mylinkedList.addElement(myFirstNode);
+		mylinkedList.addElement(mySecondNode);
+		mylinkedList.insert(myFirstNode,newNode);
+		mylinkedList.printMyNodes();
+        boolean result = mylinkedList.head.equals(myFirstNode) 
+        				 && mylinkedList.head.getNext().equals(newNode)
+                         && mylinkedList.tail.equals(mySecondNode);
+        Assert.assertTrue(result);
+	}
+	
 }
