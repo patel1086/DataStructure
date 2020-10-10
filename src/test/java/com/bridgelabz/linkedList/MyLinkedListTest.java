@@ -15,6 +15,7 @@ public class MyLinkedListTest {
 		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
 		myFirstNode.setNext(mySecondNode);
         mySecondNode.setNext(myThirdNode);
+        System.out.println(MyLinkedList.getCount());
         boolean result = myFirstNode.getNext().equals(mySecondNode) &&
                 			mySecondNode.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
@@ -28,6 +29,7 @@ public class MyLinkedListTest {
 		mylinkedList.add(myThirdNode);
 		mylinkedList.add(mySecondNode);
 		mylinkedList.add(myFirstNode);
+		System.out.println(MyLinkedList.getCount());
 		boolean result=mylinkedList.head.equals(myFirstNode)
 						&&mylinkedList.head.getNext().equals(mySecondNode)
 						&&mylinkedList.tail.equals(myThirdNode);
@@ -43,6 +45,7 @@ public class MyLinkedListTest {
 		mylinkedList.addElement(mySecondNode);
 		mylinkedList.addElement(myThirdNode);
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result = mylinkedList.head.equals(myFirstNode) 
         				 && mylinkedList.head.getNext().equals(mySecondNode)
                          && mylinkedList.tail.equals(myThirdNode);
@@ -57,6 +60,7 @@ public class MyLinkedListTest {
 		mylinkedList.addElement(mySecondNode);
 		mylinkedList.insert(myFirstNode,newNode);
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result = mylinkedList.head.equals(myFirstNode) 
         				 && mylinkedList.head.getNext().equals(newNode)
                          && mylinkedList.tail.equals(mySecondNode);
@@ -72,6 +76,7 @@ public class MyLinkedListTest {
 		mylinkedList.addElement(myThirdNode);
 		mylinkedList.pop();
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result = mylinkedList.head.equals(mySecondNode) 
         				 && mylinkedList.head.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
@@ -86,6 +91,7 @@ public class MyLinkedListTest {
 		mylinkedList.addElement(myThirdNode);
 		mylinkedList.popLast();
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result = mylinkedList.head.equals(myFirstNode) 
         				 && mylinkedList.head.getNext().equals(mySecondNode);
         Assert.assertTrue(result);
@@ -100,6 +106,7 @@ public class MyLinkedListTest {
 		mylinkedList.addElement(myThirdNode);
 		INode element=mylinkedList.search(myThirdNode);
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result =element.getKey().equals(myThirdNode.getKey());
         Assert.assertTrue(result);
 	}
@@ -115,6 +122,7 @@ public class MyLinkedListTest {
 		INode element=mylinkedList.search(mySecondNode);
 		mylinkedList.insert(element, myNewNode);
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result =mylinkedList.head.equals(myFirstNode) 
         				&& mylinkedList.head.getNext().equals(mySecondNode) 
         				&&mylinkedList.head.getNext().getNext().equals(myNewNode)
@@ -134,9 +142,28 @@ public class MyLinkedListTest {
 		mylinkedList.insert(element, myNewNode);
 		mylinkedList.deleteAtIndex(myNewNode);
 		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
         boolean result =mylinkedList.head.equals(myFirstNode) 
         				&& mylinkedList.head.getNext().equals(mySecondNode) 
         				&& mylinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+	}
+	@Test
+	public void given4NumbersShouldSortedInASECorderInLinkedList() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
+		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
+		KeyNode<Integer> myNewNode=new KeyNode<>(40);
+		mylinkedList.sorted(myFirstNode);
+		mylinkedList.sorted(mySecondNode);
+		mylinkedList.sorted(myThirdNode);
+		mylinkedList.sorted(myNewNode);
+		mylinkedList.printMyNodes();
+		System.out.println(MyLinkedList.getCount());
+        boolean result =mylinkedList.head.equals(mySecondNode) 
+				        && mylinkedList.head.getNext().equals(myNewNode) 
+				        &&mylinkedList.head.getNext().getNext().equals(myFirstNode)
+				        && mylinkedList.head.getNext().getNext().getNext().equals(myThirdNode);
         Assert.assertTrue(result);
 	}
 }
