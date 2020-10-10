@@ -90,4 +90,17 @@ public class MyLinkedListTest {
         				 && mylinkedList.head.getNext().equals(mySecondNode);
         Assert.assertTrue(result);
 	}
+	@Test
+	public void given3NumbersShouldSerachElementInLinkedList() {
+		KeyNode<Integer> myFirstNode=new KeyNode<>(56);
+		KeyNode<Integer> mySecondNode=new KeyNode<>(30);
+		KeyNode<Integer> myThirdNode=new KeyNode<>(70);
+		mylinkedList.addElement(myFirstNode);
+		mylinkedList.addElement(mySecondNode);
+		mylinkedList.addElement(myThirdNode);
+		INode element=mylinkedList.search(myThirdNode);
+		mylinkedList.printMyNodes();
+        boolean result =element.getKey().equals(myThirdNode.getKey());
+        Assert.assertTrue(result);
+	}
 }

@@ -68,6 +68,19 @@ public class MyLinkedList<K>{
            return tempLastNode;
        }
     }
+	//Method for search an element in Linked List
+	public INode search(INode element) {
+        if (this.head.equals(element))
+            return this.head;
+
+        INode tempNode = head;
+        while (tempNode != null) {
+            tempNode = tempNode.getNext();
+            if (tempNode.equals(element))
+                return tempNode;
+        }
+        return null;
+    }
 	public void printMyNodes() {
 		StringBuffer myNodes=new StringBuffer("My Nodes: ");
 		INode tempNode=head;
