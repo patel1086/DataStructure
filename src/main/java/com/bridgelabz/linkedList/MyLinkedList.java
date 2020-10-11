@@ -11,7 +11,8 @@ public class MyLinkedList<K>{
 	public static int getCount() {
         return count;
     }
-	public void add(INode<K> newNode) {
+	//Method to add elements from the front
+	public void add(INode newNode) {
 		count++;
 		if(this.tail==null) {
 			this.tail=newNode;
@@ -26,7 +27,7 @@ public class MyLinkedList<K>{
 			this.head.setNext(tempNode);
 		}
 	}
-	////Method to add elements from the back
+	//Method to add elements from the front
 	public void addElement(INode newNode) {
 		count++;
         if (this.head == null) {
