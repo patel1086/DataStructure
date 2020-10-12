@@ -22,5 +22,9 @@ public class MyHashMap<K,V>{
 			myMapNode.setValue(value);
 		}
 	}
+	public K delete(K key) {
+		MyMapNode<K,V> myMapNode=(MyMapNode<K,V>) this.myLinkedList.deleteAtIndex(key);
+		return (myMapNode==null)?null:myMapNode.getKey();
+	}
 	
 }
