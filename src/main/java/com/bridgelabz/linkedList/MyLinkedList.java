@@ -7,6 +7,7 @@ public class MyLinkedList<K>{
 	public MyLinkedList() {
 		this.head=head;
 		this.tail=tail;
+		count=0;
 	}
 	public static int getCount() {
         return count;
@@ -32,9 +33,9 @@ public class MyLinkedList<K>{
         if (this.head == null) {
             this.head = newNode;
         } 
-        if (this.tail == null) {
-            this.tail = newNode;
-        }
+//        if (this.tail == null) {
+//            this.tail = newNode;
+//        }
         else {
             INode tempNode = this.head;
             while (tempNode.getNext() != null) {
@@ -91,6 +92,19 @@ public class MyLinkedList<K>{
         }
         return null;
     }
+	//Method To Search For a Specific Node By Key
+	public INode<K> search(K key) {
+		if(head==null)
+	           return null;
+
+        INode<K> tempNode = this.head;
+        while (tempNode != null) {
+            if (tempNode.getKey().equals(key))
+                return tempNode;
+            tempNode =tempNode.getNext();
+        }
+        return null;
+	}
 	//Method to delete an element at any index in Linked List
 	public INode deleteAtIndex(INode element) {
 		count--;
